@@ -1,0 +1,74 @@
+body{
+    background: repeat-y center/100% url(../img/bg-fade2.jpg);
+}
+nav{
+    background: #666666;
+}
+
+nav li a{
+    font-size: 1.5em;
+    color: white;
+}
+
+nav li a:hover{
+    color: white;
+    background: black;
+}
+
+nav img{
+    width: 72px;
+    border: 1px solid;
+}
+
+header .row div:first-child{
+    background: url(../img/feature-fade.jpg);
+}
+
+h1{
+    padding-top: 10px;
+}
+
+h1, header p{
+    color: white;
+}
+
+header li{
+    font-weight: bold;
+}
+
+header .row img{
+    padding: 0;
+}
+
+#corps{
+    background: #d2ffd2;
+    border-radius: 0 0 10px 10px;
+    padding: 30px 7px;
+}
+aside{
+    background: white;
+    border: 1px solid;
+    padding: 30px;
+}
+
+main{
+    border: 1px solid;
+    padding: 30px 0 20px 0;
+}
+
+footer{
+    background: no-repeat center/100% url(../img/footer.jpg);
+    border-radius: inherit;
+    padding: 0;
+}
+
+footer p{
+    margin: 0;
+}
+
+#tel {
+    color: white;
+    font-size: 1.5em;
+    font-weight: 500;
+    text-align: right;
+}
