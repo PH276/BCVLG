@@ -1,6 +1,6 @@
 <footer class="container-fluid">
     <div class="row align-items-center">
-        <p class="col">Copyright © 2017 Billard club vlg </p>
+        <p class="col">Copyright © <?= date('Y'); ?> Billard club vlg </p>
         <p class="col" id="tel">Tél : 01 47 94 68 52 </p>
     </div>
 

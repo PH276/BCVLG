@@ -1,6 +1,8 @@
 body{
-    background: repeat-y center/100% url(../img/bg-fade2.jpg);
+    /*background: repeat-y center/100% url(../img/bg-fade2.jpg);*/
+    background: rgb(87, 118, 189);
 }
+
 nav{
     background: #666666;
 }
@@ -20,8 +22,8 @@ nav img{
     border: 1px solid;
 }
 
-header .row div:first-child{
-    background: url(../img/feature-fade.jpg);
+header{
+    background: linear-gradient(rgb(99, 130, 0), rgb(166, 215, 0));
 }
 
 h1{
@@ -41,19 +43,17 @@ header .row img{
 }
 
 #corps{
-    background: #d2ffd2;
+    /*background: #d2ffd2;*/
     border-radius: 0 0 10px 10px;
-    padding: 30px 7px;
+    /*padding: 30px 7px;*/
 }
-aside{
+aside, main{
     background: white;
-    border: 1px solid;
     padding: 30px;
 }
 
 main{
-    border: 1px solid;
-    padding: 30px 0 20px 0;
+    /*padding: 30px 0 20px 0;*/
 }
 
 footer{
