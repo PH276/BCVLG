@@ -10,7 +10,7 @@ include ('head.php');
         <?php
         $texte_header = "header_index.html";
         include ('header.php'); ?>
-        <div id="corps" class="container-fluid">
+        <div class="container-fluid">
             <div class="row">
                 <aside class="col-3">  <!--  aside -->
                     <div class="row">

@@ -26,6 +26,14 @@ header{
     background: linear-gradient(rgb(99, 130, 0), rgb(166, 215, 0));
 }
 
+#header_photo h1, #header_photo p{
+    margin : 50px;
+}
+
+#header_photo p{
+    font-size: 1.3em;
+}
+
 h1{
     padding-top: 10px;
 }
@@ -43,10 +51,9 @@ header .row img{
 }
 
 #corps{
-    /*background: #d2ffd2;*/
     border-radius: 0 0 10px 10px;
-    /*padding: 30px 7px;*/
 }
+
 aside, main{
     background: white;
     padding: 30px;
@@ -67,8 +74,16 @@ footer p{
 }
 
 #tel {
+    text-align: right;
+}
+
+#tel a{
     color: white;
     font-size: 1.5em;
     font-weight: 500;
-    text-align: right;
+}
+
+#photo main img{
+    width: 50%;
+    margin: auto;
 }
