@@ -2,14 +2,14 @@
 <html lang="fr">
 <?php
 $titrePage = "";
-include ('head.php');
+include ('inc/head.inc.php');
 ?>
 <body>
-    <?php include ('nav.php'); ?>
+    <?php include ('inc/nav.inc.php'); ?>
     <div id="corps" class="container">
         <?php
         $texte_header = "header_photo.html";
-        include ('header.php'); ?>
+        include ('inc/header.inc.php'); ?>
         <div class="container-fluid">
             <div class="row">
                 <aside class="col-3">  <!--  aside -->
@@ -82,7 +82,7 @@ include ('head.php');
         </div>
 
 
-        <?php include ('footer.php'); ?>
+        <?php include ('inc/footer.inc.php'); ?>
     </div>
 
 
