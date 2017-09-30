@@ -38,6 +38,8 @@ include ('inc/head.inc.php');
                     </div>
                 </aside>
                 <main class="col-9">
+                    <h1>Partagez vos photos</h1>
+                    <p>Envoyez-nous les photos de vos rencontres</p>
                     <section>
                         <h2>Aidez-nous</h2>
                         <hr color="#99CC00" size="5">

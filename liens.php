@@ -23,6 +23,8 @@ include ('inc/head.inc.php');
                     </div>
                 </aside>
                 <main class="col-9">
+                    <h1>Sites à visiter</h1>
+                    <!-- <p>Nous avons sélectionné quelques sites pour vous.</p> -->
                     <div class="row">
                         <div class="col-6">
                             <h2>Fédération</h2>

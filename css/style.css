@@ -38,11 +38,13 @@ header{
     padding: 50px;
 }
 
-h1{
+header p:first-of-type{
     padding-top: 10px;
+    font-size: 2em;
+    font-weight: bold;
 }
 
-h1, header p{
+header p{
     color: white;
 }
 
@@ -65,6 +67,30 @@ aside, main{
 
 main{
     /*padding: 30px 0 20px 0;*/
+}
+
+h1{
+    color: black;
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.resultats h2{
+    text-align: center;
+}
+
+.resultats h4{
+    text-align: center;
+}
+
+.resultats > div{
+    margin: 30px 0;
+}
+
+.tournoi{
+    border: 1px solid;
+    border-radius: 15px;
+    padding: 5px;
 }
 
 footer{

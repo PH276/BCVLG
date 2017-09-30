@@ -7,9 +7,7 @@ include ('inc/head.inc.php');
 <body>
     <?php include ('inc/nav.inc.php'); ?>
     <div id="corps" class="container">
-        <?php
-        $texte_header = "header_index.html";
-        include ('inc/header.inc.php'); ?>
+        <?php include ('inc/header.inc.php'); ?>
         <div class="container-fluid">
             <div class="row">
                 <aside class="col-3">  <!--  aside -->
@@ -40,6 +38,7 @@ include ('inc/head.inc.php');
                     </div>
                 </aside>
                 <main class="col-9">
+                    <h1>Accueil</h1>
                     <section>
                         <h2>Ecole ouverte</h2>
                         <hr color="#99CC00" size="5">
@@ -147,7 +146,7 @@ include ('inc/head.inc.php');
                         <div class="col-4">
                             <h2>L'assemblée générale</h2>
                             <hr color="#99CC00" size=5>
-                            <p>La prochaine assemblée générale se déroulera un samedi du mois d'octobre</p>
+                            <p>La prochaine assemblée générale se déroulera <strong>le samedi 14 octobre à 14 heures précise</strong></p>
                         </div>
                     </section>
                     <section>
