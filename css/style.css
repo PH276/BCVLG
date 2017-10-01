@@ -1,3 +1,19 @@
+#ag{
+    /*position: absolute;*/
+    /*margin-left: 10%;*/
+    /*top:80px;*/
+    background: cyan;
+    /*width: 50%;
+    margin: auto;*/
+
+    border: 5px solid red;
+    border-radius: 15px;
+    font-size: 1.5em;
+    text-align: center;
+    padding: 20px 50px;
+    z-index: 100;
+
+}
 body{
     /*background: repeat-y center/100% url(../img/bg-fade2.jpg);*/
     background: rgb(87, 118, 189);

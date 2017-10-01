@@ -7,6 +7,12 @@ include ('inc/head.inc.php');
 <body>
     <?php include ('inc/nav.inc.php'); ?>
     <div id="corps" class="container">
+        <div id="ag">
+            <h1>Assemblée générale</h1>
+            <p>La prochaine <strong>assemblée générale</strong> aura lieu le <br><strong>samedi 14 septembre à 14 heure précise</strong>.</p>
+            <p>Votre présence est importante.</p>
+
+        </div>
         <?php include ('inc/header.inc.php'); ?>
         <div class="container-fluid">
             <div class="row">
@@ -38,7 +44,7 @@ include ('inc/head.inc.php');
                     </div>
                 </aside>
                 <main class="col-9">
-                    <h1>Accueil</h1>
+                    <h2 style="text-align:center">Accueil</h2>
                     <section>
                         <h2>Ecole ouverte</h2>
                         <hr color="#99CC00" size="5">
