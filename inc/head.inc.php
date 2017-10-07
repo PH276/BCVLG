@@ -5,15 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
     <!-- ****************************** icone ****************************** -->
-    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" />
-    <link rel="icon" type="image/png" href="favicon.ico" />
+    <link rel="shortcut icon" href="<?= RACINE_SITE ?>favicon.ico" type="image/x-icon" />
+    <link rel="icon"  href="<?= RACINE_SITE ?>favicon.ico" />
 
     <!-- ********************** css Bootstrap ****************************** -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
 
     <!-- <script src="https://use.fontawesome.com/f29720d172.js"></script> -->
 
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="<?= RACINE_SITE ?>css/style.css">
 
 
 
