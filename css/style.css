@@ -133,3 +133,17 @@ footer p{
     width: 50%;
     margin: auto;
 }
+
+/*------------------------------ ADMIN ----------------------------------*/
+#fmembre form{
+    background: #c0c0c0;
+    padding: 20px;
+}
+
+#fmembre form label{
+    width: 200px;
+}
+
+#gmembre>div{
+    background: white;
+}
