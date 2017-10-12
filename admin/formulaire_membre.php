@@ -127,52 +127,102 @@ $page = 'Gestion Membre';
 include ('../inc/head.inc.php');
 ?>
 <body id="fmembre">
+
 	<?php include ('../inc/nav.inc.php'); ?>
-	<h1><?= $action ?> un membre</h1>
+	<div class="container" >
 
-	<form class="container" action="" method="post" enctype="multipart/form-data">
+		<div class="row" >
+			<div class="col-12">
 
-		<input type="hidden" name="id_membre" value="<?= $id_membre ?>"/>
+				<h1><?= $action ?> un membre</h1>
+				<form action="" method="post" enctype="multipart/form-data">
 
-		<label for="photo"><img src="<?= RACINE_SITE ?>photos/<?= $photo ?>" height="100px"/></label><br>
-		<!-- <label>Photo :</label> -->
-		<input id="photo" type="file" name="photo"/ hidden>
+					<input type="hidden" name="id_membre" value="<?= $id_membre ?>"/>
+
+					<div class="form-group">
+						<label for="photo"><img src="<?= RACINE_SITE ?>photos/<?= $photo ?>" height="100px"/></label><br>
+						<!-- <label>Photo :</label> -->
+						<input id="photo" type="file" name="photo"/ hidden>
 
 
-		<input type="hidden" name="photo_actuelle" value="<?= $photo ?>" />
+						<input type="hidden" name="photo_actuelle" value="<?= $photo ?>" />
+					</div>
 
-		<label>Prénom :</label>
-		<input type="text" name="prenom" value="<?= $prenom ?>" required><br>
+					<div class="form-group">
+						<label>Prénom :</label>
+						<input type="text" name="prenom" value="<?= $prenom ?>" required>
+					</div>
 
-		<label>Nom :</label>
-		<input type="text" name="nom" value="<?= $nom ?>" required><br>
+					<div class="form-group">
+						<label>Nom :</label>
+						<input type="text" name="nom" value="<?= $nom ?>" required>
+					</div>
 
-		<label>Date de naissance :</label>
-		<input type="text" name="date_naissance" value="<?= $date_naissance ?>"><br>
+					<div class="form-group">
+						<label>Date de naissance :</label>
+						<input type="text" name="date_naissance" value="<?= $date_naissance ?>">
+					</div>
 
-		<label>Adresse :</label>
-		<input type="text" name="adresse" value="<?= $adresse ?>" required><br>
+					<div class="form-group">
+						<label>Adresse :</label>
+						<input type="text" name="adresse" value="<?= $adresse ?>" required>
+					</div>
 
-		<label>Code postal :</label>
-		<input type="text" name="code_postal" value="<?= $code_postal ?>" required><br>
+					<div class="form-group">
+						<label>Code postal :</label>
+						<input type="text" name="code_postal" value="<?= $code_postal ?>" required>
+					</div>
 
-		<label>Ville :</label>
-		<input type="text" name="ville" value="<?= $ville ?>" required><br>
+					<div class="form-group">
+						<label>Ville :</label>
+						<input type="text" name="ville" value="<?= $ville ?>" required>
+					</div>
 
-		<label>tél. fixe :</label>
-		<input type="text" name="tel_fixe" value="<?= $tel_fixe ?>"><br>
+					<div class="form-group">
+						<label>tél. fixe :</label>
+						<input type="text" name="tel_fixe" value="<?= $tel_fixe ?>">
+					</div>
 
-		<label>Tél. mobile :</label>
-		<input type="text" name="tel_mobile" value="<?= $tel_mobile ?>"><br>
+					<div class="form-group">
+						<label>Tél. mobile :</label>
+						<input type="text" name="tel_mobile" value="<?= $tel_mobile ?>">
+					</div>
 
-		<label>Email :</label>
-		<input type="email" name="email" value="<?= $email ?>"><br>
+					<div class="form-group">
+						<label>Email :</label>
+						<input type="email" name="email" value="<?= $email ?>">
+					</div>
 
-		<input class="btn btn-primary" type="submit" name="<?= $action ?>" value="<?= $action ?>" />
 
-	</form>
-	<?php include ('../inc/footer.inc.php'); ?>
-</div>
+					<input class="btn btn-primary" type="submit" name="<?= $action ?>" value="<?= $action ?>" />
+
+				</form>
+			</div>
+			<!-- <div class="col-6">
+				<form action="" method="post">
+
+					<div class="form-group">
+						<select name="">
+							<option>Président</option>
+							<option>Vice-Président</option>
+							<option>Secrétaire</option>
+							<option>Trésorier</option>
+							<option>Membre</option>
+						</select>
+					</div>
+
+					<div class="form-group">
+						<select name="">
+
+						</select>
+					</div>
+
+					<input class="btn btn-primary" type="submit" name="Ajouter" value="<?= $action ?>" />
+
+				</form>
+			</div> -->
+		</div>
+	</div>
 
 
 </body>

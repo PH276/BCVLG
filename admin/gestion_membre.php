@@ -26,6 +26,7 @@ for($i = 0; $i < $resultat -> columnCount(); $i++ ){
 }
 
 $contenu .= '	<th colspan="2">Actions</th>';
+$contenu .= '	<th> Adhérents </th>';
 $contenu .= '</tr>'; // fin ligne des titres
 
 foreach($membres as $valeur){ // parcourt tous les enregistrements
@@ -43,11 +44,11 @@ foreach($membres as $valeur){ // parcourt tous les enregistrements
 	}
 	$contenu .= '<td><a href="formulaire_membre.php?id=' . $valeur['id'] . '"><img src="../img/edit.png" /></a></td>';
 	$contenu .= '<td><a onclick="confirm(\'Êtes certain de vouloir supprimer ce membre numéro ' . $valeur['id'] . ' \');" href="supprimer_membre.php?id=' . $valeur['id'] . '"><img src="../img/delete.png" /></a></td>';
+	$contenu .= '<td style="width:40px"><input class="cb_adherent" style="width: 80%;height:35px;margin:auto" type="checkbox" value="'.$valeur['id'].'"></td>';
 
 	$contenu .= '</tr>';
 }
 $contenu .= '</table>';
-
 
 $page = 'Gestion membre';
 include ('../inc/head.inc.php');
@@ -55,20 +56,17 @@ include ('../inc/head.inc.php');
 <body id="gmembre">
 	<?php include ('../inc/nav.inc.php'); ?>
 	<!-- Contenu HTML -->
+	<a style="color:white" href="./">admin</a>
 	<h1>Gestion des membres</h1>
 	<div class="container">
 
-
 		<a class="btn-add" href="formulaire_membre.php">Ajouter un membre</a>
-
 
 		<?= $contenu ?>
 
 	</div>
 
 	<?php include ('../inc/footer.inc.php'); ?>
-
-
 
 </body>
 </html>

@@ -110,7 +110,8 @@ h1{
 }
 
 footer{
-    background: no-repeat center/100% url(../img/footer.jpg);
+    background: linear-gradient(to right, #8ab800, #8dbe00);
+//    background: no-repeat center/100% url(../img/footer.jpg);
     border-radius: inherit;
     padding: 0;
 }
