@@ -65,6 +65,7 @@ $action = (isset($membre_actuel)) ? 'Modifier' : 'Ajouter';
 
 $page = 'Gestion Membre';
 include ('../inc/head.inc.php');
+include ('header.php');
 ?>
 <body id="fmembre">
 

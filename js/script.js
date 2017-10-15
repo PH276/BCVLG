@@ -11,7 +11,7 @@ window.onload = function(){
 
             var r = new XMLHttpRequest();
 
-            r.open("POST", "gestion_adherent.php", true);
+            r.open("POST", "ajout_supp_adherent.php", true);
 
             r.setRequestHeader("Content-type",
             "application/x-www-form-urlencoded");
@@ -20,4 +20,13 @@ window.onload = function(){
         });
     }
 
+    function confirmer(q){
+
+        confirm(q);
+    }
 }
+
+
+// <a onclick="confirm(\'Êtes certain de vouloir supprimer ce membre numéro ' . $valeur['id'] . ' \', $valeur['id']);" href="supprimer_membre.php?id=' . $valeur['id'] . '">
+
+// ' . $valeur['id'] . '

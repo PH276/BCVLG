@@ -14,32 +14,32 @@ include ('inc/head.inc.php');
         <div class="container-fluid">
             <div class="row">
                 <aside class="col-3">  <!--  aside -->
-                    <div class="row">
-                    </div>
-                    <div class="row">
+                    <section class="row">
+                    </section>
+                    <section class="row">
                         <div class="col-12">
                             <h3>Le Grand Handicap</h3>
                             <p>
                                 Il s'agit d'une compétition permettant à l'ensemble des joueurs du club de se rencontrer quelque soit leur niveau, le nombre de points à réaliser (handicap) est calculé en fonction du niveau de chacun.
                             </p>
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-12">
-                            <h3>Le penthatlon</h3>
-                            <p>
-                                Il s'agit d'une épeuve regroupant 4 disciplines. Dans la même partie le joueur doit réaliser un quota de points à la libre, à la bande, au trois bandes et cazin et .
-                            </p>
-                        </div>
-                    </div>
-                    <div class="row">
+                    </section>
+                    <section class="row">
                         <div class="col-12">
                             <h3>Le Cazin</h3>
                             <p>
                                 Chaque joueur doit effectuer des figures imposées, qu'il doit annoncer avant de jouer. Il est interdit de jouer la meme figure deux fois de suite. Le premier qui a réalisé chaque figure un nombre de fois prédéfini à l'avance a gagné.
                             </p>
                         </div>
-                    </div>
+                    </section>
+                    <section class="row">
+                        <div class="col-12">
+                            <h3>Le penthatlon</h3>
+                            <p>
+                                Il s'agit d'une épeuve regroupant 5 disciplines. Dans la même partie le joueur doit réaliser un quota de points, par exemple à la libre, à la bande, au trois bandes et cazin et au 4 billes.
+                            </p>
+                        </div>
+                    </section>
                 </aside>
                 <main class="col-9 resultats">
                     <h1>Résultats - saison 2016/2017</h1>

@@ -148,3 +148,11 @@ footer p{
 #gmembre>div{
     background: white;
 }
+
+#suppMembre:hover{
+    cursor: pointer;
+}
+
+th, td {
+    padding: 5px;
+}

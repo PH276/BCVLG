@@ -10,7 +10,7 @@
                 <a class="nav-link" href="index.php">Accueil</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="resultats.php">Résultats</a>
+                <a class="nav-link" href="tournois.php">Tournois</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="photo.php">Photos</a>

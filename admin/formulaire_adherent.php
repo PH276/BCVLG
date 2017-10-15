@@ -130,6 +130,7 @@ include ('../inc/head.inc.php');
 
 	<?php include ('../inc/nav.inc.php'); ?>
 	<div class="container" >
+		<?php include ('nav_admin.php') ?>
 
 		<div class="row" >
 			<div class="col-12">
