@@ -136,6 +136,7 @@ footer p{
 }
 
 /*------------------------------ ADMIN ----------------------------------*/
+/* ------------------------ formulaire_adherent --------------------------- */
 #fmembre form{
     background: #c0c0c0;
     padding: 20px;
@@ -145,14 +146,16 @@ footer p{
     width: 200px;
 }
 
-#gmembre>div{
+/* ------------------------ gestion_adherent --------------------------- */
+#gmembre>div, #gbureau>div{
     background: white;
-}
-
-#suppMembre:hover{
-    cursor: pointer;
 }
 
 th, td {
     padding: 5px;
+}
+
+#cotisation {
+    line-height: 0.5em;
+    margin: 0;
 }

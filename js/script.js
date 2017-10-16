@@ -20,10 +20,27 @@ window.onload = function(){
         });
     }
 
-    function confirmer(q){
+    // choix des membre du bureau dans 'gestion_bureau.php'
+    var cbBureau = document.getElementsByClassName("cb_bureau");
+    for (i = 0 ; i < cbBureau.length; i++){
 
-        confirm(q);
+        cbBureau[i].addEventListener("change", function(event){
+            event.preventDefault();
+            bureau = (this.checked)?'1':'0';
+            parameters = 'id='+this.value+'&bureau='+bureau;
+            console.log(parameters);
+
+            var r = new XMLHttpRequest();
+
+            r.open("POST", "ajout_supp_bureau.php", true);
+
+            r.setRequestHeader("Content-type",
+            "application/x-www-form-urlencoded");
+
+            r.send(parameters);
+        });
     }
+
 }
 
 
