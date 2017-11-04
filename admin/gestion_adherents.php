@@ -63,7 +63,7 @@ include ('../inc/head.inc.php');
 	<div class="container">
 		<div class="row">
 			<div class="col-auto ml-auto">
-				<button type="button" class="btn btn-outline-primary" ><a class="btn-add" href="formulaire_membre.php">Ajouter un adherent</a></button><br>
+				<button type="button" class="btn btn-outline-primary" ><a class="btn-add" href="formulaire_adherent.php">Ajouter un adherent</a></button><br>
 			</div>
 			<div class="col-auto ml-auto">
 				<?php

@@ -9,13 +9,12 @@
     <link rel="icon"  href="<?= RACINE_SITE ?>favicon.ico" />
 
     <!-- ********************** css Bootstrap ****************************** -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
-
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
     <!-- <script src="https://use.fontawesome.com/f29720d172.js"></script> -->
 
     <link rel="stylesheet" href="<?= RACINE_SITE ?>css/style.css">
 
 
 
-    <title><?php echo $titrePage.'Billard Club Villeneuve-la-Garenne' ?></title>
+    <title><?php echo $titrePage.'Billard Club de Villeneuve-la-Garenne' ?></title>
 </head>

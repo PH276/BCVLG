@@ -9,24 +9,14 @@ if(!empty($_POST)){
 	debug($_POST);
 	debug($_FILES);
 
-	// Renommer la photo / ref_time()_nom.ext
-	// controls sur la photo
-	// enregistrer la photo sur le serveur
-
-	// Controls sur les infos du formulaire (pas vide, nbre de caractère etc...)
-	// Requete pour insérer les infos dans la BDD.
-	// redirection sur gestion_membre.php
-
 
 	if(isset($_POST['photo_actuelle'])){
 		$nom_photo = $_POST['photo_actuelle'];
 	}
-	// Si je suis dans le cadre d'une modification de membre, on récupère le nom de l'ancienne photo... mais il se peut que l'utilisateur souhaite changer la photo, c'est le code ci-dessous qui prend le relais.
 
 	if(!empty($_FILES['photo']['name'])){ // Si une photo est uploadée
 
 		$nom_photo = $_POST['id_membre'] . '-' . $_FILES['photo']['name'];
-		// Si la photo est nommée tshirt.jpg, on la renomme : XX21_1543234454_tshirt.jpg pour aviter les doublons possibles sur le serveur (cf les noms des photos sur facebook par exemple).
 
 		$chemin_photo = $_SERVER['DOCUMENT_ROOT'] . RACINE_SITE . 'photos/' . $nom_photo;
 		// chemin: c://xampp/htdocs   /PHP/site/   photos/   1-membre.jpg
@@ -135,7 +125,7 @@ include ('../inc/head.inc.php');
 		<div class="row" >
 			<div class="col-12">
 
-				<h1><?= $action ?> un membre</h1>
+				<h1><?= $action ?> un adhérent</h1>
 				<form action="" method="post" enctype="multipart/form-data">
 
 					<input type="hidden" name="id_membre" value="<?= $id_membre ?>"/>

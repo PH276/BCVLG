@@ -1,5 +1,3 @@
-
-inc/init.inc.php
-inc/init.inc.php
-inc/hebergeur-init.inc.php
-inc/hebergeur-init.inc.php
+inc/parametres.inc.php
+inc/1and1_parametres.inc.php
+inc/local_parametres.inc.php
