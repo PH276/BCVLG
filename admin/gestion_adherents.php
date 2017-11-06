@@ -5,11 +5,11 @@ if(isset($_GET['msg']) && $_GET['msg'] == 'validation' && isset($_GET['id'])){
 	$msg .= '<div class="validation">Le membre N°' . $_GET['id'] . ' a été correctement enregistré !</div>';
 }
 
-$resultat = $pdo -> query("SELECT * FROM adherent WHERE saison=".date('Y'));
+$resultat = $pdo -> query("SELECT * FROM adherents WHERE saison=".date('Y'));
 $adherents = $resultat -> fetchAll(PDO::FETCH_ASSOC);
 $nb_adherents = $resultat -> rowCount();
 
-$resultat = $pdo -> query("SELECT j.*, a.cotisation adherent FROM adherent a right join joueurs j on j.id=a.id_joueur where saison=$saison_annee_un or saison is null ORDER BY prenom");
+$resultat = $pdo -> query("SELECT j.*, a.cotisation FROM adherents a right join joueurs j on j.id=a.id_joueur where saison=$saison_annee_un or saison is null ORDER BY prenom");
 // SELECT * FROM joueurs ORDER BY prenom
 $membres = $resultat -> fetchAll(PDO::FETCH_ASSOC);
 $contenu .= 'Nombre de membres : ' . $resultat -> rowCount() . '<br/>';
@@ -28,7 +28,7 @@ for($i = 0; $i < $resultat -> columnCount(); $i++ ){
 }
 
 $contenu .= '	<th></th>';
-$contenu .= '	<th>Adhérent</th>';
+$contenu .= '	<th>Cotisation</th>';
 $contenu .= '</tr>'; // fin ligne des titres
 
 foreach($membres as $valeur){ // parcourt tous les enregistrements
@@ -45,8 +45,16 @@ foreach($membres as $valeur){ // parcourt tous les enregistrements
 		}
 	}
 	$contenu .= '<td><a href="formulaire_adherent.php?id=' . $valeur['id'] . '"><img src="../img/edit.png" /></a></td>';
-	$b_adherent = ($valeur['adherent'])?' checked ':'';
-	$contenu .= '<td><input class="cb_adherent" style="width: 80%;height:35px;margin:auto" type="checkbox" value="'.$valeur['id'].'"'.$b_adherent.'></td>';
+	$b_adherent = ($valeur['cotisation']==$saison_annee_un)?' checked ':'';
+	$contenu .= '<td>';
+	// $contenu .= '<input class="cb_adherent" style="width: 80%;height:35px;margin:auto" type="checkbox" value="'.$valeur['id'].'"'.$b_adherent.'>';
+	$contenu .= '<input name="cotisation" id="sans" type="radio" checked>';
+	$contenu .= '<label for="sans"> : non </label>';
+	$contenu .= '<input name="cotisation" id="chq" type="radio" >';
+	$contenu .= '<label for="chq"> : chq </label>';
+	$contenu .= '<input name="cotisation" id="esp" type="radio" >';
+	$contenu .= '<label for="esp"> : esp </label>';
+	$contenu .= '</td>';
 
 	$contenu .= '</tr>';
 }
@@ -67,7 +75,7 @@ include ('../inc/head.inc.php');
 			</div>
 			<div class="col-auto ml-auto">
 				<?php
-				$resultat = $pdo -> query("SELECT distinct(saison) FROM adherent ORDER BY saison DESC");
+				$resultat = $pdo -> query("SELECT distinct(saison) FROM adherents ORDER BY saison DESC");
 				$saisons = $resultat -> fetchAll(PDO::FETCH_ASSOC);
 				?>
 

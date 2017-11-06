@@ -73,7 +73,12 @@ if(!empty($_POST)){
 		if($resultat -> execute()){
 
 			$mbr_insert = (isset($_POST['Modifier'])) ? $_POST['id_membre'] : $pdo -> lastInsertId(); // Récupère l'ID du dernier enregistrement.
-			header('location:gestion_membre.php?msg=validation&id=' . $mbr_insert);
+
+			$resultat = $pdo -> query("INSERT INTO adherents(saison, id_joueur) VALUES ($saison_annee_un, $mbr_insert) ");
+
+			$resultat -> execute();
+
+			header('location:gestion_adherents.php?msg=validation&id=' . $mbr_insert);
 		}
 	}
 }// fin du if(!empty($_POST))
@@ -183,37 +188,41 @@ include ('../inc/head.inc.php');
 						<label>Email :</label>
 						<input type="email" name="email" value="<?= $email ?>">
 					</div>
+					<div class="form-group">
+						<input name="cotisation" id="sans" type="radio" checked>
+						<label for="sans"> : non </label>
+					</div>
 
-
+					
 					<input class="btn btn-primary" type="submit" name="<?= $action ?>" value="<?= $action ?>" />
 
 				</form>
 			</div>
 			<!-- <div class="col-6">
-				<form action="" method="post">
+			<form action="" method="post">
 
-					<div class="form-group">
-						<select name="">
-							<option>Président</option>
-							<option>Vice-Président</option>
-							<option>Secrétaire</option>
-							<option>Trésorier</option>
-							<option>Membre</option>
-						</select>
-					</div>
-
-					<div class="form-group">
-						<select name="">
-
-						</select>
-					</div>
-
-					<input class="btn btn-primary" type="submit" name="Ajouter" value="<?= $action ?>" />
-
-				</form>
-			</div> -->
-		</div>
+			<div class="form-group">
+			<select name="">
+			<option>Président</option>
+			<option>Vice-Président</option>
+			<option>Secrétaire</option>
+			<option>Trésorier</option>
+			<option>Membre</option>
+		</select>
 	</div>
+
+	<div class="form-group">
+	<select name="">
+
+</select>
+</div>
+
+<input class="btn btn-primary" type="submit" name="Ajouter" value="<?= $action ?>" />
+
+</form>
+</div> -->
+</div>
+</div>
 
 
 </body>
