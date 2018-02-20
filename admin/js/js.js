@@ -1,6 +1,7 @@
 
 $('button[name="liste"]').on('click', function(){
     $('.reduit').toggle();
+    // $('th').css("text-align", "left");
 });
 
 $('input[name=adherent]').on('change', function(){

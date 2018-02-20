@@ -2,7 +2,7 @@
 include ('inc/init.inc.php');
 $dateSaison = time() - 243 * 24 * 3600;
 $saison = date('Y', $dateSaison);
-echo $saison;
+
 $requete = "SELECT j.id id, nom, prenom, date_naissance, adresse, code_postal, ville, tel_mobile, tel_fixe, email, id_joueur FROM joueurs as j LEFT JOIN adherents ON adherents.id_joueur=j.id AND saison=$saison ORDER BY nom, prenom";
 
 $req = $pdo -> query ($requete);
@@ -112,7 +112,7 @@ include ('inc/head.inc.php');
         <a class="btn btn-info" href="#nom">Ajouter un joueur</a>
         <button class="btn btn-info" type="button" name="liste">Liste complète / réduite</button>
     </div>
-    <h1 class="text-center">Liste des <?= $nb ?> joueurs</h1>
+    <h1 class="text-center">Liste des <?= $nb ?> anciens adhérents</h1>
 
     <!-- Affichage de la Liste des joueurs -->
     <table class="table table-striped">
@@ -127,7 +127,7 @@ include ('inc/head.inc.php');
             <th class="reduit">Ville</th>
             <th class="reduit" colspan="2" class="text-center">Téléphones</th>
             <th class="reduit">Email</th>
-            <th class="text-center">Adhérent</th>
+            <th class="text-center"><?= $saison . '/' . ($saison+1) ?></th>
             <th class="text-center">Suppression</th>
         </tr>
 

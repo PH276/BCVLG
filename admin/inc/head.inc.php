@@ -22,7 +22,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="../index.php"><img src="../images/logo.jpg" width=192> </a>
+                <a class="navbar-brand" href="../index.php"><img src="../img/logo.png" width=50> </a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -31,9 +31,9 @@
                     <li><a href="joueurs.php">Joueurs</a></li>
                     <li><a href="adherents.php">Adhérents</a></li>
                 </ul>
-                <ul class="nav navbar-nav navbar-right">
+                <!-- <ul class="nav navbar-nav navbar-right">
                     <li><a href="deconnexion.php">Deconnexion</a></li>
-                </ul>
+                </ul> -->
             </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->
     </nav>

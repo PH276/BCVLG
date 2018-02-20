@@ -25,12 +25,12 @@ if (isset($_GET['action']) && isset($_GET['id'])) {
     }
 
     // cas de la modification d'un adherent
-    if ($_GET['action'] == "modif"){
-        $req = $pdo -> prepare ("SELECT * FROM joueurs INNER JOIN adherents ON adherents.id_joueur=joueurs.id WHERE adherents.id_joueur = :id");
-        $req -> bindParam(':id', $_GET['id'], PDO::PARAM_INT);
-        $req -> execute();
-        $adherent_a_modifier = $req -> fetch(PDO::FETCH_ASSOC);
-    }
+    // if ($_GET['action'] == "modif"){
+    //     $req = $pdo -> prepare ("SELECT * FROM adherents as a INNER JOIN joueurs ON a.id_joueur=joueurs.id WHERE a.id = :id");
+    //     $req -> bindParam(':id', $_GET['id'], PDO::PARAM_INT);
+    //     $req -> execute();
+    //     $adherent_a_modifier = $req -> fetch(PDO::FETCH_ASSOC);
+    // }
 }
 
 // traitement du formulaire
@@ -129,13 +129,14 @@ include ('inc/head.inc.php');
             <th class="reduit">Ville</th>
             <th class="reduit" colspan="2" class="text-center">Téléphones</th>
             <th class="reduit">Email</th>
-            <th class="text-center imprimer">Modification</th>
+            <th class="reduit">Paiement</th>
+            <!-- <th class="text-center imprimer">Modification</th> -->
             <th class="text-center imprimer">Suppression</th>
         </tr>
 
         <?php foreach ($adherents as $adherent) : ?>
             <tr>
-                <td class="imprimer"><?= $adherent['id'] ?></td>
+                <td class="imprimer"><?= $adherent['id_adherent'] ?></td>
 
                 <td><?= $adherent['nom'] ?></td>
                 <td><?= $adherent['prenom'] ?></td>
@@ -146,97 +147,50 @@ include ('inc/head.inc.php');
                 <td class="reduit"><?= $adherent['tel_mobile'] ?></td>
                 <td class="reduit"><?= $adherent['tel_fixe'] ?></td>
                 <td class="reduit"><?= $adherent['email'] ?></td>
-                <td class="text-center imprimer">
-                    <a href="adherent.php?action=modif&id=<?= $adherent['id_adherent'] ?>#nom">
-                        <button type="button" class="btn btn-info">
-                            <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
-                        </button>
-                    </a>
+                <td class="reduit">
+                    <form action="#" method="post" class="form-inline imprimer">
+                        <input type="hidden" name="id" value="<?= (isset($adherent_a_modifier['id']))?$adherent_a_modifier['id']:0 ?>">
+                        <label class="radio-inline">
+                            <input type="radio" id="cotisation" name="cotisation" value="chq" <?= (isset($adherent_a_modifier) && $adherent_a_modifier['cotisation'] =="chq")?" checked ":"" ?>>Chèque
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" id="cotisation" name="cotisation" value="chq" <?= (isset($adherent_a_modifier) && $adherent_a_modifier['cotisation'] =="esp")?" checked ":"" ?>>Espèce
+                        </label>
+
+                    </form>
                 </td>
-                <td class="text-center imprimer">
-                    <a href="?action=suppr&id=<?= $adherent['id'] ?>">
-                        <button  class="btn btn-danger">
-                            <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
-                        </button>
-                    </a>
-                </td>
-            </tr>
-        <?php endforeach; ?>
+                <!-- <td class="text-center imprimer">
+                <a href="adherents.php?action=modif&id=<?= $adherent['id_adherent'] ?>#nom">
+                <button type="button" class="btn btn-info">
+                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+            </button>
+        </a>
+    </td> -->
+    <td class="text-center imprimer">
+        <a href="?action=suppr&id=<?= $adherent['id_adherent'] ?>">
+            <button  class="btn btn-danger">
+                <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+            </button>
+        </a>
+    </td>
+</tr>
+<?php endforeach; ?>
 
-    </table>
+</table>
 
-    <!-- formulaire de saisie pour un ajout  -->
-    <form action="#" method="post" class="form-inline imprimer">
-        <input type="hidden" name="id" value="<?= (isset($adherent_a_modifier['id']))?$adherent_a_modifier['id']:0 ?>">
-            <div class="form-group">
-                <?php if (!empty($erreurnom)) : ?>
-                    <p class="alert alert-danger"><?= $erreurnom ?></p>
-                <?php endif; ?>
-                <label for="nom">nom :</label>
-                <input type="text" name="nom" class="form-control" id="nom" value="<?= (isset($adherent_a_modifier['nom']))?$adherent_a_modifier['nom']:'' ?>">
-            </div>
+<!-- formulaire de saisie pour un ajout  -->
+<form action="#" method="post" class="form-inline imprimer">
+    <input type="hidden" name="id" value="<?= (isset($adherent_a_modifier['id']))?$adherent_a_modifier['id']:0 ?>">
+    <label class="radio-inline">
+        <input type="radio" id="cotisation" name="cotisation" value="chq" <?= (isset($adherent_a_modifier) && $adherent_a_modifier['cotisation'] =="chq")?" checked ":"" ?>>Chèque
+    </label>
+    <label class="radio-inline">
+        <input type="radio" id="cotisation" name="cotisation" value="chq" <?= (isset($adherent_a_modifier) && $adherent_a_modifier['cotisation'] =="esp")?" checked ":"" ?>>Espèce
+    </label>
 
-            <div class="form-group">
-                <?php if (!empty($erreurdatenaissance)) : ?>
-                    <p class="alert alert-danger"><?= $erreurdate_naissance ?></p>
-                <?php endif; ?>
-                <label for="date_naissance">date de naissance :</label>
-                <input type="text" name="date_naissance" class="form-control" id="date_naissance" value="<?= (isset($adherent_a_modifier['date_naissance']))?$adherent_a_modifier['date_naissance']:'' ?>">
-            </div>
+</form>
+</main>
 
-            <div class="form-group">
-                <?php if (!empty($erreurprenom)) : ?>
-                    <p class="alert alert-danger"><?= $erreurprenom ?></p>
-                <?php endif; ?>
-                <label for="prenom">Prénom :</label>
-                <input type="text" name="prenom" class="form-control" id="prenom" value="<?= (isset($adherent_a_modifier['prenom']))?$adherent_a_modifier['prenom']:'' ?>">
-            </div>
-
-            <div class="form-group">
-                <label for="adresse">adresse :</label>
-                <input type="text" name="adresse" class="form-control" id="adresse" value="<?= (isset($adherent_a_modifier['adresse']))?$adherent_a_modifier['adresse']:'' ?>">
-            </div>
-
-            <div class="form-group">
-                <label for="codepostal">code postal :</label>
-                <input type="text" name="code_postal" class="form-control" id="codepostal" value="<?= (isset($adherent_a_modifier['code_postal']))?$adherent_a_modifier['code_postal']:'' ?>">
-            </div>
-
-            <div class="form-group">
-                <label for="ville">ville :</label>
-                <input type="text" name="ville" class="form-control" id="ville" value="<?= (isset($adherent_a_modifier['ville']))?$adherent_a_modifier['ville']:'' ?>">
-            </div>
-
-            <div class="form-group">
-                <label for="tel_mobile">portable :</label>
-                <input type="tel" name="tel_mobile" class="form-control" id="tel_mobile" value="<?= (isset($adherent_a_modifier['tel_mobile']))?$adherent_a_modifier['tel_mobile']:'' ?>">
-            </div>
-
-            <div class="form-group">
-                <label for="tel_fixe">portable :</label>
-                <input type="tel" name="tel_fixe" class="form-control" id="tel_fixe" value="<?= (isset($adherent_a_modifier['tel_fixe']))?$adherent_a_modifier['tel_fixe']:'' ?>">
-            </div>
-
-            <div class="form-group">
-                <label for="email">email :</label>
-                <input type="text" name="email" class="form-control" id="email" value="<?= (isset($adherent_a_modifier['email']))?$adherent_a_modifier['email']:'' ?>">
-            </div>
-
-            <br>
-
-            <label class="radio-inline">
-                <input type="radio" id="cotisation" name="cotisation" value="chq" <?= (isset($adherent_a_modifier) && $adherent_a_modifier['cotisation'] =="chq")?" checked ":"" ?>>Chèque
-            </label>
-            <label class="radio-inline">
-                <input type="radio" id="cotisation" name="cotisation" value="chq" <?= (isset($adherent_a_modifier) && $adherent_a_modifier['cotisation'] =="esp")?" checked ":"" ?>>Espèce
-            </label>
-            <br>
-
-            <?php $action=(isset($adherent_a_modifier['id'])?"Modifier le":"Ajouter un ") ?>
-            <button type="submit" class="btn btn-primary"><?= $action ?>adhérent</button>
-        </form>
-    </main>
-
-    <?php
-    include ('inc/footer.inc.php');
-    ?>
+<?php
+include ('inc/footer.inc.php');
+?>
