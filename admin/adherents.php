@@ -3,7 +3,7 @@ include ('inc/init.inc.php');
 $dateSaison = time() - 243 * 24 * 3600;
 $saison = date('Y', $dateSaison);
 
-$requete = "SELECT * FROM joueurs INNER JOIN adherents ON adherents.id_joueur=joueurs.id WHERE saison = $saison ORDER BY nom, prenom";
+$requete = "SELECT j.id id, nom, prenom, date_naissance, adresse, code_postal, ville, tel_mobile, tel_fixe, email, a.id id_adherent FROM joueurs as j INNER JOIN adherents as a ON a.id_joueur=j.id WHERE saison = $saison ORDER BY nom, prenom";
 
 $req = $pdo -> query ($requete);
 $adherents = $req -> fetchAll(PDO::FETCH_ASSOC);
@@ -18,7 +18,7 @@ if (isset($_GET['action']) && isset($_GET['id'])) {
 
     // cas d'une suppresion
     if ($_GET['action'] == "suppr"){
-        $req = $pdo -> prepare ("DELETE FROM joueurs WHERE id = :id");
+        $req = $pdo -> prepare ("DELETE FROM adherents WHERE id = :id");
         $req -> bindParam(':id', $_GET['id'], PDO::PARAM_INT);
         $req -> execute();
         header('location: adherents.php');
@@ -147,7 +147,7 @@ include ('inc/head.inc.php');
                 <td class="reduit"><?= $adherent['tel_fixe'] ?></td>
                 <td class="reduit"><?= $adherent['email'] ?></td>
                 <td class="text-center imprimer">
-                    <a href="adherent.php?action=modif&id=<?= $adherent['id'] ?>#nom">
+                    <a href="adherent.php?action=modif&id=<?= $adherent['id_adherent'] ?>#nom">
                         <button type="button" class="btn btn-info">
                             <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
                         </button>
