@@ -142,8 +142,18 @@ include ('inc/head.inc.php');
                 <td class="reduit"><?= $adherent['tel_mobile'] ?></td>
                 <td class="reduit"><?= $adherent['tel_fixe'] ?></td>
                 <td class="reduit"><?= $adherent['email'] ?></td>
-                <td class="reduit">
-                    <?= ($adherent['cotisation'] =="chq")?"Chèque":(($adherent['cotisation'] =="esp")?"Espèce":"A régler") ?>
+                <td id="paiement<?= $adherent['id_adherent'] ?>" class="reduit">
+                    <?php if (empty($adherent['cotisation'])) : ?>
+                        <label class="radio-inline">
+                            <input type="radio" id="<?= $adherent['id_adherent'] ?>" data-cotis="Chèque" name="cotis" value="chq" >Chèque
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" id="<?= $adherent['id_adherent'] ?>" data-cotis="Espèce" name="cotis" value="esp">Espèce
+                        </label>
+
+                    <?php else : ?>
+                        <?= ($adherent['cotisation'] =="chq")?"Chèque":"Espèce" ?>
+                    <?php endif; ?>
                 </td>
                 <td class="text-center imprimer">
                     <a href="adherents.php?action=modif&id=<?= $adherent['id_adherent'] ?>#nom">

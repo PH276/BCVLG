@@ -23,3 +23,15 @@ $('button[name=imprimer]').on('click', function(){
     $('.imprimer').hide();
 
 })
+
+$('input[name=cotis]').on('click', function(){
+    $.ajax({
+        method: "POST",
+        url : "ajax_paiement.php",
+        data: {id:this.id, cotisation:this.value}
+    });
+
+    var cas = $(this).parent().parent()[0].id;
+    $('#'+cas).html($(this).data('cotis'));
+    console.log($(this).data('cotis'));
+});
