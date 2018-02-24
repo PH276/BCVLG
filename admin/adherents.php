@@ -178,17 +178,6 @@ include ('inc/head.inc.php');
 
 </table>
 
-<!-- formulaire de saisie pour un ajout  -->
-<form action="#" method="post" class="form-inline imprimer">
-    <input type="hidden" name="id" value="<?= (isset($adherent_a_modifier['id']))?$adherent_a_modifier['id']:0 ?>">
-    <label class="radio-inline">
-        <input type="radio" id="cotisation" name="cotisation" value="chq" <?= (isset($adherent_a_modifier) && $adherent_a_modifier['cotisation'] =="chq")?" checked ":"" ?>>Chèque
-    </label>
-    <label class="radio-inline">
-        <input type="radio" id="cotisation" name="cotisation" value="chq" <?= (isset($adherent_a_modifier) && $adherent_a_modifier['cotisation'] =="esp")?" checked ":"" ?>>Espèce
-    </label>
-
-</form>
 </main>
 
 <?php

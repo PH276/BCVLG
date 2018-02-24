@@ -109,10 +109,9 @@ include ('inc/head.inc.php');
 ?>
 <main class="container-fluid">
     <div>
-        <a class="btn btn-info" href="#nom">Ajouter un joueur</a>
         <button class="btn btn-info" type="button" name="liste">Liste complète / réduite</button>
     </div>
-    <h1 class="text-center">Liste des <?= $nb ?> anciens adhérents</h1>
+    <h1 class="text-center">Liste des <?= $nb ?> adhérents des saisons passées</h1>
 
     <!-- Affichage de la Liste des joueurs -->
     <table class="table table-striped">
