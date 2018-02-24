@@ -3,7 +3,7 @@ include ('inc/init.inc.php');
 $dateSaison = time() - 243 * 24 * 3600;
 $saison = date('Y', $dateSaison);
 
-$requete = "SELECT j.id id, nom, prenom, date_naissance, adresse, code_postal, ville, tel_mobile, tel_fixe, email, a.id id_adherent, cotisation FROM joueurs as j INNER JOIN adherents as a ON a.id_joueur=j.id WHERE saison = $saison ORDER BY nom, prenom";
+$requete = "SELECT j.id id, nom, prenom, date_naissance, adresse, code_postal, ville, tel_mobile, tel_fixe, email, a.id id_adherent, a.cotisation FROM joueurs as j INNER JOIN adherents as a ON a.id_joueur=j.id WHERE saison = $saison ORDER BY nom, prenom";
 
 $req = $pdo -> query ($requete);
 $adherents = $req -> fetchAll(PDO::FETCH_ASSOC);
