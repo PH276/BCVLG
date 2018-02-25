@@ -127,7 +127,7 @@ include ('inc/head.inc.php');
             <th class="reduit" colspan="2" class="text-center">Téléphones</th>
             <th class="reduit">Email</th>
             <th class="text-center"><?= $saison . '/' . ($saison+1) ?></th>
-            <th class="text-center">Suppression</th>
+            <!-- <th class="text-center">Suppression</th> -->
         </tr>
 
         <?php foreach ($joueurs as $joueur) : ?>
@@ -153,13 +153,13 @@ include ('inc/head.inc.php');
                         <?php endif; ?>
                     </form>
                 </td>
-                <td class="text-center">
+                <!-- <td class="text-center">
                     <a href="?action=suppr&id=<?= $joueur['id'] ?>">
                         <button  class="btn btn-danger">
                             <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
                         </button>
                     </a>
-                </td>
+                </td> -->
             </tr>
         <?php endforeach; ?>
 

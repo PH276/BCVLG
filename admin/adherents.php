@@ -3,7 +3,7 @@ include ('inc/init.inc.php');
 $dateSaison = time() - 243 * 24 * 3600;
 $saison = date('Y', $dateSaison);
 
-$requete = "SELECT j.id id, nom, prenom, date_naissance, adresse, code_postal, ville, tel_mobile, tel_fixe, email, a.id id_adherent, a.cotisation FROM joueurs as j INNER JOIN adherents as a ON a.id_joueur=j.id WHERE saison = $saison ORDER BY nom, prenom";
+$requete = "SELECT j.id id, nom, prenom, date_naissance, adresse, code_postal, ville, tel_mobile, tel_fixe, email, a.id id_adherent, a.cotisation cotisation FROM joueurs as j INNER JOIN adherents as a ON a.id_joueur=j.id WHERE saison = $saison ORDER BY nom, prenom";
 
 $req = $pdo -> query ($requete);
 $adherents = $req -> fetchAll(PDO::FETCH_ASSOC);
@@ -18,7 +18,7 @@ if (isset($_GET['action']) && isset($_GET['id'])) {
 
     // cas de la modification d'un adherent
     if ($_GET['action'] == "modif"){
-        $req = $pdo -> prepare ("SELECT * FROM adherents as a INNER JOIN joueurs ON a.id_joueur=joueurs.id WHERE a.id = :id");
+        $req = $pdo -> prepare ("SELECT j.id id, nom, prenom, date_naissance, adresse, code_postal, ville, tel_mobile, tel_fixe, email, a.id id_adherent, a.cotisation cotisation FROM adherents as a INNER JOIN joueurs as j ON a.id_joueur=j.id WHERE a.id = :id");
         $req -> bindParam(':id', $_GET['id'], PDO::PARAM_INT);
         $req -> execute();
         $adherent_a_modifier = $req -> fetch(PDO::FETCH_ASSOC);
@@ -135,7 +135,7 @@ include ('inc/head.inc.php');
 
                 <td><?= $adherent['nom'] ?></td>
                 <td><?= $adherent['prenom'] ?></td>
-                <td><?= $adherent['date_naissance'] ?></td>
+                <td><?= date_format(date_create($adherent['date_naissance']), 'd/m/Y' ) ?></td>
                 <td class="reduit"><?= $adherent['adresse'] ?></td>
                 <td class="reduit"><?= $adherent['code_postal'] ?></td>
                 <td class="reduit"><?= $adherent['ville'] ?></td>
@@ -145,10 +145,10 @@ include ('inc/head.inc.php');
                 <td id="paiement<?= $adherent['id_adherent'] ?>" class="reduit">
                     <?php if (empty($adherent['cotisation'])) : ?>
                         <label class="radio-inline">
-                            <input type="radio" id="<?= $adherent['id_adherent'] ?>" data-cotis="Chèque" name="cotis" value="chq" >Chèque
+                            <input type="radio" data-id="<?= $adherent['id_adherent'] ?>" data-cotis="Chèque" name="cotis" value="chq" >Chèque
                         </label>
                         <label class="radio-inline">
-                            <input type="radio" id="<?= $adherent['id_adherent'] ?>" data-cotis="Espèce" name="cotis" value="esp">Espèce
+                            <input type="radio" data-id="<?= $adherent['id_adherent'] ?>" data-cotis="Espèce" name="cotis" value="esp">Espèce
                         </label>
 
                     <?php else : ?>
@@ -223,7 +223,7 @@ include ('inc/head.inc.php');
         </div>
 
         <div class="form-group">
-            <label for="tel_fixe">portable :</label>
+            <label for="tel_fixe">fixe :</label>
             <input type="tel" name="tel_fixe" class="form-control" id="tel_fixe" value="<?= (isset($adherent_a_modifier['tel_fixe']))?$adherent_a_modifier['tel_fixe']:'' ?>">
         </div>
 
@@ -243,7 +243,7 @@ include ('inc/head.inc.php');
         <br>
 
         <?php
-        $action=(isset($adherent_a_modifier['id'])?"Modifier le":"Ajouter un ");
+        $action=(isset($adherent_a_modifier['id'])?"Modifier l'":"Ajouter un ");
         $nameValid = (isset($adherent_a_modifier['id'])?"modifier":"ajouter");
         ?>
         <button type="submit" name="<?= $nameValid ?>" class="btn btn-primary"><?= $action ?>adhérent</button>
