@@ -3,7 +3,7 @@ include ('inc/init.inc.php');
 $dateSaison = time() - 243 * 24 * 3600;
 $saison = date('Y', $dateSaison);
 
-$requete = "SELECT j.id id, nom, prenom, date_naissance, adresse, code_postal, ville, tel_mobile, tel_fixe, email, a.id id_adherent, a.cotisation cotisation FROM joueurs as j INNER JOIN adherents as a ON a.id_joueur=j.id WHERE saison = $saison ORDER BY nom, prenom";
+$requete = "SELECT j.id id, nom, prenom, pseudo, date_naissance, adresse, code_postal, ville, tel_mobile, tel_fixe, email, a.id id_adherent, a.cotisation cotisation FROM joueurs as j INNER JOIN adherents as a ON a.id_joueur=j.id WHERE saison = $saison ORDER BY nom, prenom";
 
 $req = $pdo -> query ($requete);
 $adherents = $req -> fetchAll(PDO::FETCH_ASSOC);
@@ -18,7 +18,7 @@ if (isset($_GET['action']) && isset($_GET['id'])) {
 
     // cas de la modification d'un adherent
     if ($_GET['action'] == "modif"){
-        $req = $pdo -> prepare ("SELECT j.id id, nom, prenom, date_naissance, adresse, code_postal, ville, tel_mobile, tel_fixe, email, a.id id_adherent, a.cotisation cotisation FROM adherents as a INNER JOIN joueurs as j ON a.id_joueur=j.id WHERE a.id = :id");
+        $req = $pdo -> prepare ("SELECT j.id id, nom, prenom, pseudo, date_naissance, adresse, code_postal, ville, tel_mobile, tel_fixe, email, a.id id_adherent, a.cotisation cotisation FROM adherents as a INNER JOIN joueurs as j ON a.id_joueur=j.id WHERE a.id = :id");
         $req -> bindParam(':id', $_GET['id'], PDO::PARAM_INT);
         $req -> execute();
         $adherent_a_modifier = $req -> fetch(PDO::FETCH_ASSOC);
@@ -41,10 +41,11 @@ if (!empty($_POST)) {
 
         if (!empty($_POST['nom']) && !empty($_POST['prenom']) ){
 
-            $req = $pdo -> prepare ("INSERT INTO joueurs(nom, prenom, date_naissance, adresse, code_postal, ville, tel_mobile, tel_fixe, email)
-            VALUES (:nom, :prenom, :date_naissance, :adresse, :code_postal, :ville, :tel_mobile, :tel_fixe, :email)");
+            $req = $pdo -> prepare ("INSERT INTO joueurs(nom, prenom, pseudo, date_naissance, adresse, code_postal, ville, tel_mobile, tel_fixe, email)
+            VALUES (:nom, :prenom, :pseudo, :date_naissance, :adresse, :code_postal, :ville, :tel_mobile, :tel_fixe, :email)");
             $req -> bindParam(':nom', $_POST['nom'], PDO::PARAM_STR);
             $req -> bindParam(':prenom', $_POST['prenom'], PDO::PARAM_STR);
+            $req -> bindParam(':pseudo', $_POST['pseudo'], PDO::PARAM_STR);
             $req -> bindParam(':date_naissance', $_POST['date_naissance'], PDO::PARAM_STR);
             $req -> bindParam(':adresse', $_POST['adresse'], PDO::PARAM_STR);
             $req -> bindParam(':code_postal', $_POST['code_postal'], PDO::PARAM_STR);
@@ -72,10 +73,11 @@ if (!empty($_POST)) {
     else {
         if (!empty($_POST['nom']) && !empty($_POST['prenom']) ){
 
-            $req = $pdo -> prepare ("UPDATE joueurs SET nom = :nom, prenom = :prenom, date_naissance = :date_naissance, adresse = :adresse, code_postal = :code_postal, ville = :ville, tel_mobile = :tel_mobile, tel_fixe = :tel_fixe, email = :email WHERE id = :id");
+            $req = $pdo -> prepare ("UPDATE joueurs SET nom = :nom, prenom = :prenom, pseudo = :pseudo, date_naissance = :date_naissance, adresse = :adresse, code_postal = :code_postal, ville = :ville, tel_mobile = :tel_mobile, tel_fixe = :tel_fixe, email = :email WHERE id = :id");
             $req -> bindParam(':id', $_POST['id'], PDO::PARAM_INT);
             $req -> bindParam(':nom', $_POST['nom'], PDO::PARAM_STR);
             $req -> bindParam(':prenom', $_POST['prenom'], PDO::PARAM_STR);
+            $req -> bindParam(':pseudo', $_POST['pseudo'], PDO::PARAM_STR);
             $req -> bindParam(':date_naissance', $_POST['date_naissance'], PDO::PARAM_STR);
             $req -> bindParam(':adresse', $_POST['adresse'], PDO::PARAM_STR);
             $req -> bindParam(':code_postal', $_POST['code_postal'], PDO::PARAM_STR);
@@ -118,6 +120,7 @@ include ('inc/head.inc.php');
             <!-- <th>Photo</th> -->
             <th>Nom</th>
             <th>Prénom</th>
+            <th>Pseudo</th>
             <th>Date de naissance</th>
             <th class="reduit">Adresse</th>
             <th class="reduit">Code postal</th>
@@ -135,6 +138,7 @@ include ('inc/head.inc.php');
 
                 <td><?= $adherent['nom'] ?></td>
                 <td><?= $adherent['prenom'] ?></td>
+                <td><?= $adherent['pseudo'] ?></td>
                 <td><?= date_format(date_create($adherent['date_naissance']), 'd/m/Y' ) ?></td>
                 <td class="reduit"><?= $adherent['adresse'] ?></td>
                 <td class="reduit"><?= $adherent['code_postal'] ?></td>
@@ -192,6 +196,14 @@ include ('inc/head.inc.php');
             <?php endif; ?>
             <label for="prenom">Prénom :</label>
             <input type="text" name="prenom" class="form-control" id="prenom" value="<?= (isset($adherent_a_modifier['prenom']))?$adherent_a_modifier['prenom']:'' ?>">
+        </div>
+
+        <div class="form-group">
+            <?php if (!empty($erreurpseudo)) : ?>
+                <p class="alert alert-danger"><?= $erreurpseudo ?></p>
+            <?php endif; ?>
+            <label for="pseudo">Pseudo :</label>
+            <input type="text" name="pseudo" class="form-control" id="pseudo" value="<?= (isset($adherent_a_modifier['pseudo']))?$adherent_a_modifier['pseudo']:'' ?>">
         </div>
 
         <div class="form-group">

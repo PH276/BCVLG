@@ -3,7 +3,7 @@ include ('inc/init.inc.php');
 $dateSaison = time() - 243 * 24 * 3600;
 $saison = date('Y', $dateSaison);
 
-$requete = "SELECT j.id id, nom, prenom, date_naissance, adresse, code_postal, ville, tel_mobile, tel_fixe, email, id_joueur FROM joueurs as j LEFT JOIN adherents ON adherents.id_joueur=j.id AND saison=$saison ORDER BY nom, prenom";
+$requete = "SELECT j.id id, nom, prenom, pseudo, date_naissance, adresse, code_postal, ville, tel_mobile, tel_fixe, email, id_joueur FROM joueurs as j LEFT JOIN adherents ON adherents.id_joueur=j.id AND saison=$saison ORDER BY nom, prenom";
 
 $req = $pdo -> query ($requete);
 $joueurs = $req -> fetchAll(PDO::FETCH_ASSOC);
@@ -39,14 +39,13 @@ if (!empty($_POST)) {
     // cas d'un ajout
     if (empty($_POST['id'])){
 
-        if (!empty($_POST['nom']) && !empty($_POST['prenom']) && !empty($_POST['adresse']) && !empty($_POST['codepostal']) && !empty($_POST['ville']) ){
+        if (!empty($_POST['nom']) && !empty($_POST['prenom']) && !empty($_POST['pseudo']) && !empty($_POST['adresse']) && !empty($_POST['codepostal']) && !empty($_POST['ville']) ){
 
-            // $req = $pdo -> prepare ("INSERT INTO profil(nom, email, prenom, adresse, codePostal, ville, telephone, portable, site, photo, role, pays)
-            //                                     VALUES (:nom, :email, :prenom, :adresse, :codePostal, :ville, :telephone, :portable, :site, :photo, 0, :pays)");
-            $req = $pdo -> prepare ("INSERT INTO joueurs(nom, prenom, date_naissance, adresse, code_postal, ville, tel_mobile, tel_fixe, email)
-            VALUES (:nom, :prenom, :date_naissance, :adresse, :code_postal, :ville, :tel_mobile, :tel_fixe, :email)");
+            $req = $pdo -> prepare ("INSERT INTO joueurs(nom, prenom, pseudo, date_naissance, adresse, code_postal, ville, tel_mobile, tel_fixe, email)
+            VALUES (:nom, :prenom, :pseudo, :date_naissance, :adresse, :code_postal, :ville, :tel_mobile, :tel_fixe, :email)");
             $req -> bindParam(':nom', $_POST['nom'], PDO::PARAM_STR);
             $req -> bindParam(':prenom', $_POST['prenom'], PDO::PARAM_STR);
+            $req -> bindParam(':pseudo', $_POST['pseudo'], PDO::PARAM_STR);
             $req -> bindParam(':date_naissance', $_POST['date_naissance'], PDO::PARAM_STR);
             $req -> bindParam(':adresse', $_POST['adresse'], PDO::PARAM_STR);
             $req -> bindParam(':code_postal', $_POST['code_postal'], PDO::PARAM_STR);
@@ -73,13 +72,15 @@ if (!empty($_POST)) {
         }
     }
     // cas d'une modification
-    else {
-        if (!empty($_POST['nom']) && !empty($_POST['prenom']) && !empty($_POST['adresse']) && !empty($_POST['codepostal']) && !empty($_POST['ville']) ){
 
-            $req = $pdo -> prepare ("UPDATE joueurs SET nom = :nom, prenom = :prenom, date_naissance = :date_naissance, adresse = :adresse, code_postal = :code_postal, ville = :ville, tel_mobile = :tel_mobile, tel_fixe = :tel_fixe, email = :email WHERE id = :id");
+    else {
+        if (!empty($_POST['nom']) && !empty($_POST['prenom']) && !empty($_POST['pseudo']) && !empty($_POST['adresse']) && !empty($_POST['codepostal']) && !empty($_POST['ville']) ){
+
+            $req = $pdo -> prepare ("UPDATE joueurs SET nom = :nom, prenom = :prenom, pseudo = :pseudo, date_naissance = :date_naissance, adresse = :adresse, code_postal = :code_postal, ville = :ville, tel_mobile = :tel_mobile, tel_fixe = :tel_fixe, email = :email WHERE id = :id");
             $req -> bindParam(':id', $_POST['id'], PDO::PARAM_INT);
             $req -> bindParam(':nom', $_POST['nom'], PDO::PARAM_STR);
             $req -> bindParam(':prenom', $_POST['prenom'], PDO::PARAM_STR);
+            $req -> bindParam(':pseudo', $_POST['pseudo'], PDO::PARAM_STR);
             $req -> bindParam(':date_naissance', $_POST['date_naissance'], PDO::PARAM_STR);
             $req -> bindParam(':adresse', $_POST['adresse'], PDO::PARAM_STR);
             $req -> bindParam(':code_postal', $_POST['code_postal'], PDO::PARAM_STR);
@@ -120,6 +121,7 @@ include ('inc/head.inc.php');
             <!-- <th>Photo</th> -->
             <th>Nom</th>
             <th>Prénom</th>
+            <th>Pseudo</th>
             <th>Date de naissance</th>
             <th class="reduit">Adresse</th>
             <th class="reduit">Code postal</th>
@@ -136,6 +138,7 @@ include ('inc/head.inc.php');
 
                 <td><?= $joueur['nom'] ?></td>
                 <td><?= $joueur['prenom'] ?></td>
+                <td><?= $joueur['pseudo'] ?></td>
                 <td><?= date_format(date_create($joueur['date_naissance']), 'd/m/Y' ) ?></td>
                 <td class="reduit"><?= $joueur['adresse'] ?></td>
                 <td class="reduit"><?= $joueur['code_postal'] ?></td>
