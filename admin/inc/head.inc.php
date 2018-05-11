@@ -30,6 +30,7 @@
                 <ul class="nav navbar-nav">
                     <li><a href="joueurs.php">Joueurs</a></li>
                     <li><a href="adherents.php">Adhérents</a></li>
+                    <li><a href="bureau.php">Bureau</a></li>
                 </ul>
                 <!-- <ul class="nav navbar-nav navbar-right">
                     <li><a href="deconnexion.php">Deconnexion</a></li>
