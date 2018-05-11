@@ -31,6 +31,7 @@
                     <li><a href="joueurs.php">Joueurs</a></li>
                     <li><a href="adherents.php">Adhérents</a></li>
                     <li><a href="bureau.php">Bureau</a></li>
+                    <li><a href="jeux.php">Modes de Jeu</a></li>
                 </ul>
                 <!-- <ul class="nav navbar-nav navbar-right">
                     <li><a href="deconnexion.php">Deconnexion</a></li>
