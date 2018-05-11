@@ -22,7 +22,7 @@ include ('inc/head.inc.php');
                 <main class="col-9">
                     <h1>Contact</h1>
                     <section>
-                        <h2>Pour nous concter</h2>
+                        <h2>Pour nous contacter</h2>
                         <hr color="#99CC00" size="5">
                         <div class="row">
                             <div class="col-7">
