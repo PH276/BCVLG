@@ -5,3 +5,25 @@
 .form-group{
     margin:5px;
 }
+
+
+#forfaits h1{
+    margin: 0;
+}
+
+#forfaits h2{
+    margin: 0 0 50px;
+}
+
+#forfaits p{
+    height: 90px;
+}
+
+#forfaits .col-md-1{
+    padding: 0
+}
+
+#forfaits input{
+    margin-top: 10px;
+     transform: scale(2);
+}

@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css">
 
-    <title><?= $page ?>Base de données</title>
+    <title><?= $page ?>Back office</title>
 </head>
 <body>
     <nav class="navbar navbar-default">
@@ -30,6 +30,7 @@
                 <ul class="nav navbar-nav">
                     <li><a href="joueurs.php">Joueurs</a></li>
                     <li><a href="adherents.php">Adhérents</a></li>
+                    <li><a href="forfaits.php">Forfaits</a></li>
                     <li><a href="bureau.php">Bureau</a></li>
                     <li><a href="jeux.php">Modes de Jeu</a></li>
                 </ul>

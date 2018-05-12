@@ -45,4 +45,22 @@ $( document ).ready(function() {
         $('#'+cas).html($(this).data('cotis'));
         console.log($(this).data('id'));
     });
+
+    $('#forfaits input').on('change', function(e){
+        action = (e.target.checked)?'new':'suppr';
+        console.log(action);
+        $.ajax({
+            type: "POST",
+            url: "ajax_forfait.php",
+            datatType: 'json',
+            data: {action:action, id:this.id},
+            success:function () {
+                console.log('ok');
+                document.location.href="forfaits.php"; 
+            },
+            error:function(e){
+                console.log(e);
+            }
+        })
+    });
 });
