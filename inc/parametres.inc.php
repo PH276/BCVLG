@@ -1,6 +1,6 @@
 <?php
 // CHEMINS
-define('RACINE_SITE', '/'); // internet
+define('RACINE_SITE', '/BCVLG/'); // internet
 
 // base de données
 define('HOST', 'localhost'); // internet
