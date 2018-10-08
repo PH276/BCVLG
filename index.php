@@ -28,8 +28,8 @@ include ('inc/head.inc.php');
                             <dt>1 heure de jeu par joueur :</dt>
                             <dd>1,50 €</dd>
                             <p>ou</p>
-                            <dt>Forfait mensuel</dt>
-                            <dd>20 € </dd>
+                            <dt>Forfait mensuel :</dt>
+                            <dd>20 €</dd>
 
                         </dl>
                     </div>
@@ -39,22 +39,17 @@ include ('inc/head.inc.php');
                         <h2>Le bureau</h2>
                         <hr color="#99CC00" size=5>
                         <dl class="">
-                            <!-- <dt>Président :</dt> -->
+                            <dt>Président :</dt>
                             <dd>Pierre PORETZKY</dd>
-                            <dd>Geeorges CHETRIT</dd>
 
-                            <!-- <dt>Vice-présidents :</dt> -->
+                            <dt>Secrétaire :</dt>
                             <dd>Christophe CORBIN</dd>
-                            <!-- <dd>Marcel TECHER</dd> -->
 
-                            <!-- <dt>Secrétaire :</dt> -->
-
-                            <!-- <dt>Trésorier :</dt> -->
+                            <dt>Trésorier :</dt>
                             <dd>Pascal HUITOREL</dd>
 
-                            <!-- <dt>Membre :</dt> -->
-                            <!-- <dd>Roger NEGRE</dd> -->
-                            <dd>Alec REID</dd>
+                            <dt>Autre membre :</dt>
+                            <dd>Gérard TREILLE</dd>
 
                         </dl>
                     </div>
@@ -90,13 +85,9 @@ include ('inc/head.inc.php');
                 </section>
             </aside>
             <main class="col-9">
-                <section style="font-size:2em;border:3px solid red;border-radius:20px;padding:10px">
-                    <!-- <h2>L'assemblée générale</h2>
-                    <hr color="#99CC00" size=5> -->
-                    <!-- <p>La dernière assemblée générale s'est déroulée le 14 octobre 2017.</strong></p> -->
+                <!-- <section style="font-size:2em;border:3px solid red;border-radius:20px;padding:10px">
                     <p><strong>La prochaine assemblée générale aura lieu le 6 octobre 2018 à 11 heures</strong>, suivi d'un repas à 13 heures.</p>
-                </section>
-
+                </section> -->
                 <section>
                     <h1>Accueil</h1>
                     <div class="row">
@@ -120,6 +111,12 @@ include ('inc/head.inc.php');
                         </div>
                     </div>
                 </section>
+                <section>
+                    <h2>L'assemblée générale</h2>
+                    <hr color="#99CC00" size=5>
+                    <p>La dernière assemblée générale s'est déroulée le 6 octobre 2018.</strong></p>
+                </section>
+
                 <section>
                     <h2>Ecole ouverte</h2>
                     <hr color="#99CC00" size="5">
@@ -145,43 +142,43 @@ include ('inc/head.inc.php');
                 </section>
 
                 <!-- <section>
-                    <h2>Journée portes ouvertes !</h2>
-                    <hr color="#99CC00" size="5">
-                    <div class="row">
-                        <div class="col-4">
-                            <img width="100%" src="img/Flyer.jpg" alt="">
-                        </div>
-                        <div class="col-8">
-                            <p>Retrouvez nous lors de la rencontre des Associations.</p>
-                            <p>Cette année, elle s'est déroulée le 10 septembre au Gymnase Philippe-Cattiau .</p>
-                            <p>Cette  manifestation publique est le rendez-vous annuel des villenogarennois avec le tissu associatif local.</p>
-                        </div>
-                    </div>
-                </section> -->
-
-                <section>
-                    <h2>Comment nous retrouver ?</h2>
-                    <hr color="#99CC00" size=5>
-                    <div class="row">
-                        <div class="col-6">
-                            <p>
-                                Au centre de Villeneuve la garenne.<br>
-                                Desservi par le tramway, à deux pas de la Mairie au 11-13 Rue Dupont du Chambon.
-                            </p>
-                            <p>Desservie par un puissant réseau routier et autoroutier et un maillage de transports en commun, Villeneuve-la-Garenne est très accessible.</p>
-                            <p><strong>Nous disposons d'un parking</strong>.</p>
-                        </div>
-                        <div class="col-6">
-                            <img width="100%" src="img/entrée club ext.jpg" alt="">
-                        </div>
-                    </div>
-                </section>
-            </main>
+                <h2>Journée portes ouvertes !</h2>
+                <hr color="#99CC00" size="5">
+                <div class="row">
+                <div class="col-4">
+                <img width="100%" src="img/Flyer.jpg" alt="">
+            </div>
+            <div class="col-8">
+            <p>Retrouvez nous lors de la rencontre des Associations.</p>
+            <p>Cette année, elle s'est déroulée le 10 septembre au Gymnase Philippe-Cattiau .</p>
+            <p>Cette  manifestation publique est le rendez-vous annuel des villenogarennois avec le tissu associatif local.</p>
         </div>
     </div>
+</section> -->
+
+<section>
+    <h2>Comment nous retrouver ?</h2>
+    <hr color="#99CC00" size=5>
+    <div class="row">
+        <div class="col-6">
+            <p>
+                Au centre de Villeneuve la garenne.<br>
+                Desservi par le tramway, à deux pas de la Mairie au 11-13 Rue Dupont du Chambon.
+            </p>
+            <p>Desservie par un puissant réseau routier et autoroutier et un maillage de transports en commun, Villeneuve-la-Garenne est très accessible.</p>
+            <p><strong>Nous disposons d'un parking</strong>.</p>
+        </div>
+        <div class="col-6">
+            <img width="100%" src="img/entrée club ext.jpg" alt="">
+        </div>
+    </div>
+</section>
+</main>
+</div>
+</div>
 
 
-    <?php include ('inc/footer.inc.php'); ?>
+<?php include ('inc/footer.inc.php'); ?>
 </div>
 
 
