@@ -1,0 +1,158 @@
+#ag{
+    /*position: absolute;*/
+    /*margin-left: 10%;*/
+    /*top:80px;*/
+    background: cyan;
+    /*width: 50%;
+    margin: auto;*/
+
+    border: 5px solid red;
+    border-radius: 15px;
+    font-size: 1.5em;
+    text-align: center;
+    padding: 20px 50px;
+    z-index: 100;
+
+}
+body{
+    /*background: repeat-y center/100% url(../img/bg-fade2.jpg);*/
+    background: rgb(87, 118, 189);
+}
+
+nav{
+    background: #666666;
+}
+
+nav li a{
+    font-size: 1.5em;
+    color: white;
+}
+
+nav li a:hover{
+    color: white;
+    background: black;
+}
+
+nav img{
+    width: 72px;
+    border: 1px solid;
+}
+
+header{
+    background: linear-gradient(rgb(99, 130, 0), rgb(166, 215, 0));
+}
+
+#header_photo h1, #header_photo p{
+    margin : 50px;
+}
+
+#header_photo p{
+    font-size: 1.3em;
+}
+
+#header_liens {
+    padding: 50px;
+}
+
+header p:first-of-type{
+    padding-top: 10px;
+    font-size: 2em;
+    font-weight: bold;
+}
+
+header p{
+    color: white;
+}
+
+header li{
+    font-weight: bold;
+}
+
+header .row img{
+    padding: 0;
+}
+
+#corps{
+    border-radius: 0 0 10px 10px;
+}
+
+aside, main{
+    background: white;
+    padding: 30px;
+}
+
+main{
+    /*padding: 30px 0 20px 0;*/
+}
+
+h1{
+    color: black;
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.resultats h2{
+    text-align: center;
+}
+
+.resultats h4{
+    text-align: center;
+}
+
+.resultats > div{
+    margin: 30px 0;
+}
+
+.tournoi{
+    border: 1px solid;
+    border-radius: 15px;
+    padding: 5px;
+}
+
+footer{
+    background: linear-gradient(to right, #8ab800, #8dbe00);
+//    background: no-repeat center/100% url(../img/footer.jpg);
+    border-radius: inherit;
+    padding: 0;
+}
+
+footer p{
+    margin: 0;
+}
+
+#tel {
+    text-align: right;
+}
+
+#tel a{
+    color: white;
+    font-size: 1.5em;
+    font-weight: 500;
+}
+
+#photo main img{
+    width: 50%;
+    margin: auto;
+}
+
+/*------------------------------ ADMIN ----------------------------------*/
+#fmembre form{
+    background: #c0c0c0;
+    padding: 20px;
+}
+
+#fmembre form label{
+    width: 200px;
+}
+
+#gmembre>div{
+    background: white;
+}
+
+#suppMembre:hover{
+    cursor: pointer;
+}
+
+th, td {
+    padding: 5px;
+}
