@@ -4,8 +4,7 @@ session_start();
 require('parametres.inc.php');
 
 
-$saison_annee_un = date ('Y', time() - 20991600);
-// $debut_saison = date ('Y', time() - 20991600);
+$saison = (date ('m') > 8)?date ('Y'):date ('Y');
 
 $pdo = new PDO('mysql:host='.HOST.';dbname='.DBNAME, USER, PASSWORD, array(
 	PDO::ATTR_ERRMODE => PDO::ERRMODE_WARNING,

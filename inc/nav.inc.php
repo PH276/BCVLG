@@ -1,6 +1,5 @@
 <nav class="navbar">
     <div class="container">
-
         <a class="navbar-brand" href="index.php">
             <img src="<?= RACINE_SITE ?>img/logo.png" alt="">
         </a>
